@@ -1,0 +1,60 @@
+int ledRed = D6;
+int ledGreen = D5;
+int ledYellow = D4;
+
+void setup() {
+    
+    Serial.begin(9600);
+    
+    pinMode();
+
+    digitalWrite(ledRed, LOW)ledRed, OUTPUT);
+    pinMode(ledGreen, OUTPUT);
+    pinMode(ledYellow, OUTPUT;
+    digitalWrite(ledGreen, LOW);
+    digitalWrite(ledYellow, LOW);
+    
+    Particle.function("toggleLights", toggleLights);
+    
+}
+
+int toggleLights(String value){
+    
+    if( value == "Red" ){
+        
+        digitalWrite(ledRed, HIGH);
+        delay(1000);
+        digitalWrite(ledRed, LOW);
+        digitalWrite(ledGreen, LOW);
+        digitalWrite(ledYellow, LOW);
+        return 1;
+        
+    }
+    else if(value == "Yellow" ){
+        
+        digitalWrite(ledYellow, HIGH);
+        delay(1000);
+        digitalWrite(ledYellow, LOW);
+        digitalWrite(ledGreen, LOW);
+        digitalWrite(ledRed, LOW);
+        return 2;
+        
+    }
+    else if(value == "Green"){
+        
+        digitalWrite(ledGreen, HIGH);
+        delay(1000);
+        digitalWrite(ledGreen, LOW);
+        digitalWrite(ledYellow, LOW);
+        digitalWrite(ledRed, LOW);
+        return 3;
+        
+    }
+    else {
+        return -1;
+    }
+}
+
+void loop() {
+   
+}
